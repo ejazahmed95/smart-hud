@@ -23,11 +23,15 @@ namespace FiaMaze.Input {
             currentActionMapType = ActionMapType.HUD;
             _playerInput.SwitchCurrentActionMap(currentActionMapType.String());
             //Screen.lockCursor = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             HUDManager.Instance.UpdateHUD(true);
         }
 
         public void OnHUDClose() {
             currentActionMapType = ActionMapType.Game;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             _playerInput.SwitchCurrentActionMap(currentActionMapType.String());
             HUDManager.Instance.UpdateHUD(false);
         }
