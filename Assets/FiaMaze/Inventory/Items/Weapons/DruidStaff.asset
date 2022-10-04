@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cee7a396ddf1374dae26ddd910a7070, type: 3}
+  m_Name: DruidStaff
+  m_EditorClassIdentifier: 
+  id: druidStaff
+  displayName: Druid Staff
+  type: {fileID: 11400000, guid: e3f043339beb24c4cb43b94366e3473d, type: 2}
+  icon: {fileID: 21300000, guid: 9ef07f5f3531f7b4eb5ab495325330b7, type: 3}
+  prefab: {fileID: 164332, guid: 270cd2a374cdd294387bfc911cf46b70, type: 3}
+  tab: {fileID: 0}
+  genre: 
+  useable: 0
+  sellable: 0
+  weight: 0
+  limitNumber: 10

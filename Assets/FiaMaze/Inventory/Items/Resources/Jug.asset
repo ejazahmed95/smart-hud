@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cee7a396ddf1374dae26ddd910a7070, type: 3}
+  m_Name: Jug
+  m_EditorClassIdentifier: 
+  id: jug
+  displayName: Water Mug
+  type: {fileID: 11400000, guid: e5239a2fb51a8d94c9ae615fe0e4e2b7, type: 2}
+  icon: {fileID: 21300000, guid: 8f5c9447a6e63ea4d9d2c371ecf43722, type: 3}
+  prefab: {fileID: 143314, guid: d0670bde75efee649a3be258c2bcad65, type: 3}
+  tab: {fileID: 0}
+  genre: 
+  useable: 0
+  sellable: 0
+  weight: 0
+  limitNumber: 10
