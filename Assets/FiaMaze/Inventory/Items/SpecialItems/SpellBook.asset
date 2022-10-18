@@ -15,7 +15,7 @@ MonoBehaviour:
   id: sb0
   displayName: Novice Book
   type: {fileID: 11400000, guid: 793d850a88c31184a90db7e3d7db8f22, type: 2}
-  icon: {fileID: 21300000, guid: fdc86b75b03f0a543bcebe0ddb385eb5, type: 3}
+  icon: {fileID: 21300000, guid: 1134843eda793fa46a6963e19f036da4, type: 3}
   prefab: {fileID: 151696, guid: ef7ee70188d7a244884fe837ee67c3f2, type: 3}
   tab: {fileID: 0}
   genre: 

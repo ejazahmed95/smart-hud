@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Weapon
   m_EditorClassIdentifier: 
   parentType: {fileID: 0}
+  stackable: 0
+  weightBased: 1

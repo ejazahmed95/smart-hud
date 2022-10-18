@@ -2,9 +2,11 @@
 using UnityEngine.Events;
 
 namespace RangerRPG.Grids {
-    public class HexCellInfo {
-        private AxialPosition _position;
+    public class HexCellInfo: ICellInfo {
+        
+        public AxialPosition Position { get; private set; }
         private bool _enabled;
+        private UnityEvent _onChange = new UnityEvent();
         
         public bool Enabled {
             get => _enabled;
@@ -13,14 +15,11 @@ namespace RangerRPG.Grids {
                 Notify();
             }
         }
-
-        private UnityEvent _onChange = new UnityEvent();
-        public AxialPosition Position => _position;
-
+        
         protected HexCellInfo() { }
 
         public void Init(AxialPosition axialPosition) {
-            _position = axialPosition;
+            Position = axialPosition;
         }
 
         public void AddListener(UnityAction changeListener) {

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: sb1
   displayName: Expert Book
   type: {fileID: 11400000, guid: 793d850a88c31184a90db7e3d7db8f22, type: 2}
-  icon: {fileID: 21300000, guid: fdc86b75b03f0a543bcebe0ddb385eb5, type: 3}
+  icon: {fileID: 21300000, guid: 1134843eda793fa46a6963e19f036da4, type: 3}
   prefab: {fileID: 146414, guid: f32a720840699ef47b55596078c5a3e3, type: 3}
   tab: {fileID: 0}
   genre: 

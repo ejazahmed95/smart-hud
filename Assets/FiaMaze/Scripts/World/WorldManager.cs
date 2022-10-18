@@ -16,7 +16,7 @@ namespace FiaMaze.World {
         
         private void Start() {
             GenerateWorld();
-            LoadMiniWorld();
+            //LoadMiniWorld();
             SpawnPlayer();
         }
 
@@ -25,7 +25,7 @@ namespace FiaMaze.World {
         /// </summary>
         private void GenerateWorld() {
             // Update World Cell Info
-            _currentCellInfo = grid.GetCell(new AxialPosition(0, 0));
+            //_currentCellInfo = grid.GetCell(new AxialPosition(0, 0));
         }
         
         /// <summary>

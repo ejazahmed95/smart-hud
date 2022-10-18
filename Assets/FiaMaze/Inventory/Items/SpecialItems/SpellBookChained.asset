@@ -15,7 +15,7 @@ MonoBehaviour:
   id: sb_legend
   displayName: Legendary Book
   type: {fileID: 11400000, guid: 793d850a88c31184a90db7e3d7db8f22, type: 2}
-  icon: {fileID: 21300000, guid: fdc86b75b03f0a543bcebe0ddb385eb5, type: 3}
+  icon: {fileID: 21300000, guid: 5a7d37528e38b9044ba08c05095736c8, type: 3}
   prefab: {fileID: 104534, guid: 5454d11bd12ae79458fea827b057e1be, type: 3}
   tab: {fileID: 0}
   genre: 

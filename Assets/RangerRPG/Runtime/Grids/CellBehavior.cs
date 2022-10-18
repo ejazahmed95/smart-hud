@@ -3,12 +3,13 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 namespace RangerRPG.Grids {
-    public class CellBehavior<T> : MonoBehaviour where T : HexCellInfo {
-        private T _info = null;
+    public class CellBehavior<T> : MonoBehaviour where T : ICellInfo {
+        private T _info = default(T);
         
-        public virtual void Init(Vector2 position, float size, T info) {
+        public virtual CellBehavior<T> Init(T info) {
             _info = info;
             _info.AddListener(OnCellInfoChange);
+            return this;
         }
 
         protected void OnEnable() {

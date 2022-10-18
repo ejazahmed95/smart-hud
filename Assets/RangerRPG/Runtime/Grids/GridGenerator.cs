@@ -25,7 +25,7 @@ namespace RangerRPG.Grids {
             grid.ForEachCell(cell => {
                 var cellObject = Instantiate(cellPrefab, transform);
                 var pos = grid.GetPosition(cell.Position, size);
-                cellObject.Init(pos, size, cell);
+                cellObject.Init(cell);
             });
         }
     }

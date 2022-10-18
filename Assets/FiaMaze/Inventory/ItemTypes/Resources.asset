@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Resources
   m_EditorClassIdentifier: 
   parentType: {fileID: 0}
+  stackable: 1
+  weightBased: 0

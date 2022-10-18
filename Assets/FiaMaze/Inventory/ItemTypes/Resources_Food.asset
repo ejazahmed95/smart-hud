@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Resources_Food
   m_EditorClassIdentifier: 
   parentType: {fileID: 11400000, guid: 497c90cbb33fc8e4598128d53780bb25, type: 2}
+  stackable: 1
+  weightBased: 0

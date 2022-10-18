@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Weapon_Ranged
   m_EditorClassIdentifier: 
   parentType: {fileID: 11400000, guid: e4da1a06aaf940b4da9f8ca13da26aac, type: 2}
+  stackable: 0
+  weightBased: 1

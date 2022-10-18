@@ -21,5 +21,5 @@ MonoBehaviour:
   genre: 
   useable: 0
   sellable: 0
-  weight: 0
+  weight: 5
   limitNumber: 10

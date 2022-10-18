@@ -11,13 +11,14 @@ namespace FiaMaze.World {
         private void Awake() {
             _rt = GetComponent<RectTransform>();
         }
-        public override void Init(Vector2 position, float size, WorldCellInfo info) {
-            base.Init(position, size, info);
+        public override CellBehavior<WorldCellInfo> Init(WorldCellInfo info) {
+            base.Init(info);
             // Log.Info($"pos {position}");
             // GetComponent<RectTransform>().rect.Set(position.x, position.y, size, size);
-            _rt.anchoredPosition = new Vector3(position.x, position.y, _rt.position.z);
-            _rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size*1.8f);
-            _rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size*1.8f);
+            _rt.anchoredPosition = new Vector3(info.Position.Q, info.Position.R, _rt.position.z);
+            _rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 10*1.8f);
+            _rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 10*1.8f);
+            return this;
         }
 
         protected override void UpdateCellInfo(WorldCellInfo info) {
