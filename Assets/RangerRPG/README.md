@@ -1,1 +1,1 @@
-#Unity Utilities by Ejaz Ahmed
+#Utilities for Unity Projects

@@ -2,9 +2,11 @@
     "name": "ea95.rangerrpg.editor",
     "rootNamespace": "",
     "references": [
-        "ea95.rangerrpg.runtime"
+        "GUID:1f2e43ddd53049249855a6f718ea7448"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
