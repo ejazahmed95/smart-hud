@@ -40,7 +40,7 @@ namespace RangerRPG.Core {
                 Debug.LogError( $"[DI] exception in getting the type of {typeof(T).FullName}; Exception {e.Message}");
                 return default;
             }
-            Log.Debug($"successfully got the type {typeof(T).FullName}");
+            //Log.Debug($"successfully got the type {typeof(T).FullName}");
             return i;
         }
 

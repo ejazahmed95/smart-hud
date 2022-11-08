@@ -1,5 +1,4 @@
-﻿using System;
-using RangerRPG.Core;
+﻿using RangerRPG.Core;
 using RangerRPG.Grids;
 using UnityEngine;
 
@@ -31,11 +30,11 @@ namespace FiaMaze.World {
         /// <summary>
         /// LoadMini
         /// </summary>
-        private void LoadMiniWorld() {
-            var mwTemplate = worldTemplates.GetTemplateForWorldCell(_currentCellInfo);
-            HexDirection availableDirs = grid.GetAvailableDirections(_currentCellInfo.Position);
-            _currentWorld = Instantiate(mwTemplate, worldParent.transform).Init(_currentCellInfo, availableDirs);
-        }
+        // private void LoadMiniWorld() {
+        //     var mwTemplate = worldTemplates.GetTemplateForWorldCell(_currentCellInfo);
+        //     HexDirection availableDirs = grid.GetAvailableDirections(_currentCellInfo.Position);
+        //     _currentWorld = Instantiate(mwTemplate, worldParent.transform).Init(_currentCellInfo, availableDirs);
+        // }
         
         /// <summary>
         /// Spawn the Player and start the game

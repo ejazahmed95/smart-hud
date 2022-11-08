@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using RangerRPG.Core;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace RangerRPG.Grids {
     public class HexGrid2D<T> : MonoBehaviour where T: HexCellInfo, new() {
@@ -38,16 +40,82 @@ namespace RangerRPG.Grids {
                 var offset = IndexToAxial(row, 0).Q;
                 for (var col = 0; col < gridDimensions.x; col++) {
                     var cell = new T();
+                    // Log.Info($"Added Cell: Q={offset+col}, R={row}");
                     cell.Init(new AxialPosition(offset + col, row));
                     rowCells.Add(cell);
                 }
                 _cellsInfo.Add(rowCells);
             }
-            
-            
-            
-            _zeroCellPosition = - (cellSize*gridDimensions)/2 + (cellSize / 2);
+            //_zeroCellPosition = - (cellSize*gridDimensions)/2 + (cellSize / 2);
             Initialized = true;
+        }
+        
+        public void SetAvailableDirections() {
+            for (var row = 0; row < gridDimensions.y; row++) {
+                for (var col = 0; col < gridDimensions.x; col++) {
+                    var axial = IndexToAxial(row, col);
+                    var cell = _cellsInfo[row][col];
+                    if(cell.Enabled == false) continue;
+                    
+                    List<HexDirection> neighbours = new List<HexDirection>() {
+                        HexDirection.Q, HexDirection.QNeg,
+                        HexDirection.R, HexDirection.RNeg,
+                        HexDirection.S, HexDirection.SNeg,
+                    };
+
+                    foreach (var direction in neighbours) {
+                        var newPos = axial.Next(direction);
+                        var index = AxialToIndex(newPos.Q, newPos.R);
+                        if (IsValid(index) && _cellsInfo[index.y][index.x].Enabled) {
+                            cell.AddAvailableDirection(direction);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void RandomizeRoomSizes() {
+            int roomId = 0;
+            float randomChance = 0.7f;
+            float roomsToCombineChance = 0.5f;
+            for (var row = 0; row < gridDimensions.y; row++) {
+                for (var col = 0; col < gridDimensions.x; col++) {
+                    var axial = IndexToAxial(row, col);
+                    var cell = _cellsInfo[row][col];
+                    if(cell.Enabled == false || cell.RoomId != -1) continue;
+                    if (Random.value > randomChance) {
+                        cell.SetRoomId(++roomId);
+                        continue;
+                    }
+                    cell.SetRoomId(++roomId);
+                    List<HexDirection> neighbours = new List<HexDirection>() {
+                        HexDirection.Q,
+                        HexDirection.R, 
+                        HexDirection.SNeg,
+                    };
+
+                    foreach (var direction in neighbours) {
+                        var newPos = axial.Next(direction);
+                        var index = AxialToIndex(newPos.Q, newPos.R);
+                        if (IsValid(index) == false) continue;
+                        var neighbourCell = CellsInfo[index.y][index.x];
+                        if (neighbourCell.Enabled == false || neighbourCell.RoomId != -1) {
+                            continue;
+                        }
+
+                        if (Random.value < roomsToCombineChance) {
+                            neighbourCell.SetRoomId(roomId);
+                            cell.AddCombinedDirection(direction);
+                            neighbourCell.AddCombinedDirection(direction.Opposite());
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        public void GetNeighbours(HexDirection dir = HexDirection.Q | HexDirection.R | HexDirection.S | HexDirection.QNeg | HexDirection.RNeg | HexDirection.SNeg) {
+            
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -57,7 +125,7 @@ namespace RangerRPG.Grids {
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private Vector2Int AxialToIndex(int q, int r) {
-            return new Vector2Int(r, q + r / 2);
+            return new Vector2Int(q + r / 2, r);
         }
 
         public void ForEachCell(Action<T> cbAction) {
@@ -66,6 +134,13 @@ namespace RangerRPG.Grids {
                     cbAction(t);
                 }
             }
+        }
+
+        public HexGridView<T> CreateView(HexGridView<T>.ViewData viewConfig) {
+            if (Initialized == false) {
+                return null;
+            }
+            return new HexGridView<T>().Init(this, viewConfig);
         }
         
         public void CreateView(Transform parent, CellBehavior<T> prefab = null) {

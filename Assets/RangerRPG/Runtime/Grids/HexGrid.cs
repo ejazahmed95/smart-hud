@@ -81,6 +81,7 @@ namespace RangerRPG.Grids {
                 }
             }
         }
+        
         public Vector2 GetPosition(AxialPosition coords, float size) {
             return new Vector2((float)(Sqrt3 * coords.Q + (Sqrt3 / 2) * coords.R) * size, (float)(1.5 * -coords.R) * size);
         }

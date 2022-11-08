@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using RangerRPG.AI;
 using RangerRPG.AI.Tools;
@@ -17,7 +16,7 @@ namespace FiaMaze.Characters {
         public GameObject spawnPoint;
         
         public GameObject playerRef;
-        public List<GameObject> patrolPoints;
+        public List<GameObject> patrolPoints = new();
         public int currentPointIndex = -1;
         public float attackRange = 5;
         public float sightDistance = 10;
@@ -30,6 +29,11 @@ namespace FiaMaze.Characters {
 
         private AudioSource source;
         public AudioClip shootClip;
+
+        public EnemyBehaviour Init(GameObject player) {
+            playerRef = player;
+            return this;
+        }
         
         private void Start() {
             transform.LookAt(playerRef.transform);

@@ -4,7 +4,7 @@ using UnityEngine.PlayerLoop;
 
 namespace RangerRPG.Grids {
     public class CellBehavior<T> : MonoBehaviour where T : ICellInfo {
-        private T _info = default(T);
+        protected T _info = default(T);
         
         public virtual CellBehavior<T> Init(T info) {
             _info = info;
@@ -14,6 +14,7 @@ namespace RangerRPG.Grids {
 
         protected void OnEnable() {
             _info?.AddListener(OnCellInfoChange);
+            OnCellInfoChange();
         }
 
         protected void OnDisable() {

@@ -8,11 +8,11 @@ namespace FiaMaze.Input {
     public class ActionMapHandler: SingletonBehaviour<ActionMapHandler> {
         [SerializeField] private ActionMapType currentActionMapType = ActionMapType.Game;
 
-        private PlayerInput _playerInput;
+        [SerializeField] private PlayerInput _playerInput;
 
         public override void Awake() {
             base.Awake();
-            _playerInput = GetComponent<PlayerInput>();
+            //_playerInput = GetComponent<PlayerInput>();
         }
 
         private void Start() {
