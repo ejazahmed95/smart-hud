@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aeafadc3bdf46e184e20afe84c86f70, type: 3}
+  m_Name: PickupAssets
+  m_EditorClassIdentifier: 
+  HealthPickup: {fileID: 346575485438814025, guid: fdaf57fdf35bb0c4f852a8cc39fa3cd6,
+    type: 3}
+  DamagePickup: {fileID: 6041115846969126117, guid: 2152ee9d68e52974f94a0429d360889a,
+    type: 3}
+  WinPickup: {fileID: 0}
+  materials:
+    list: []
+    keyCollision: 0
+  defaultMaterial: {fileID: 0}
